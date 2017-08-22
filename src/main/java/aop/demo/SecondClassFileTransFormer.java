@@ -1,6 +1,7 @@
 package aop.demo;
 
 import javassist.*;
+import org.apache.commons.lang.StringUtils;
 
 import java.io.IOException;
 import java.lang.instrument.ClassFileTransformer;
@@ -9,22 +10,26 @@ import java.lang.instrument.Instrumentation;
 import java.security.ProtectionDomain;
 
 /**
- * @author simple_huang@foxmail.com on 2017/8/21.
+ * @author simple_huang@foxmail.com on 2017/8/22.
  */
-public class MyClassFileTransformer implements ClassFileTransformer{
+public class SecondClassFileTransFormer implements ClassFileTransformer{
+    @Override
     public byte[] transform(ClassLoader loader, String className, Class<?> classBeingRedefined, ProtectionDomain protectionDomain, byte[] classfileBuffer) throws IllegalClassFormatException {
         System.out.println(className);
-        if (!"aop/model/Business".equals(className)) {
+        if (!"aop/model/business".equals(className)) {
             return null;
         }
-        if (className != null && className.indexOf("/") != -1) {
+        if (StringUtils.isNotBlank(className) && className.contains("/")) {
             className = className.replace("/", ".");
         }
         try {
             CtClass cc = ClassPool.getDefault().get(className);
-            CtMethod method = cc.getDeclaredMethod("doSomeThing");
-            method.insertBefore("{ System.out.println(\"doSomeThing前记录日志\"); }");
+            CtMethod cm = cc.getDeclaredMethod("doSomeThing");
+            cm.insertBefore("{\n" +
+                    "        System.out.println(\"...\");\n" +
+                    "    }");
             return cc.toBytecode();
+
         } catch (NotFoundException e) {
             e.printStackTrace();
         } catch (CannotCompileException e) {
@@ -36,7 +41,6 @@ public class MyClassFileTransformer implements ClassFileTransformer{
     }
 
     public static void premain(String options, Instrumentation ins) {
-        ins.addTransformer(new MyClassFileTransformer());
+        ins.addTransformer(new SecondClassFileTransFormer());
     }
-
 }
