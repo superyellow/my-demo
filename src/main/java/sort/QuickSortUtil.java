@@ -10,6 +10,7 @@ public class QuickSortUtil {
     private QuickSortUtil(){}
 
     public static int[] quickSortInt(int[] ints, int low, int high) {
+        //递归实现
         if (low < high) {
             int middle = getMiddle(ints, low, high);
             quickSortInt(ints, low, middle - 1);
