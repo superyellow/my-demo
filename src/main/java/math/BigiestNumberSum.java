@@ -30,7 +30,7 @@ public class BigiestNumberSum {
      输出例子:
      1875
      */
-    public static Long calculateMaxNum(String[] strs) {
+    public static Long caculateMaxNum(String[] strs) {
         Map<String, Long> letterWeightMap = new HashMap<>();
         for (String s: strs) {
             String[] splitLetters = s.split("");
@@ -64,10 +64,10 @@ public class BigiestNumberSum {
     }
     public static void main(String[] args) {
         String[] strs = {"DIAED", "ECJAD"};
-        System.out.println(calculateMaxNum(strs));
+        System.out.println(caculateMaxNum(strs));
 
         String[] ss = {"ABC", "BCA"};
-        System.out.println(calculateMaxNum(ss));
+        System.out.println(caculateMaxNum(ss));
     }
 
 }
