@@ -1,3 +1,6 @@
+import org.apache.commons.lang.builder.ToStringBuilder;
+import org.apache.commons.lang.builder.ToStringStyle;
+
 import java.util.Date;
 import java.util.List;
 
@@ -18,6 +21,11 @@ public class ActivityAddForm {
     private String params;
     private List<CodePackageAddForm> codePackageList;
     private List<ChargeSettingAddForm> chargeSettingList;
+
+    public ActivityAddForm(Integer partnerNodeId, String activityName) {
+        this.partnerNodeId = partnerNodeId;
+        this.activityName = activityName;
+    }
 
     public Integer getPartnerNodeId() {
         return partnerNodeId;
@@ -121,5 +129,14 @@ public class ActivityAddForm {
 
     public void setChargeSettingList(List<ChargeSettingAddForm> chargeSettingList) {
         this.chargeSettingList = chargeSettingList;
+    }
+
+    @Override
+    public String toString() {
+        return ToStringBuilder.reflectionToString(this, ToStringStyle.MULTI_LINE_STYLE);
+    }
+
+    public static void main(String[] args) {
+        System.out.println(new ActivityAddForm(1, "afasdf"));
     }
 }

@@ -12,7 +12,7 @@ import java.util.List;
  */
 public class TestJson {
     public static void main(String[] args) {
-        ActivityAddForm aaf = new ActivityAddForm();
+        ActivityAddForm aaf = new ActivityAddForm(1, "");
         aaf.setParams("{1,2,3}");
         aaf.setActivityName("充值优惠");
         aaf.setActivityArticleId(1l);
