@@ -2,6 +2,7 @@ import org.springframework.beans.BeanUtils;
 import org.springframework.core.convert.converter.Converter;
 
 import java.util.*;
+import java.util.function.Function;
 import java.util.stream.Collectors;
 
 /**
@@ -42,21 +43,33 @@ public class Test {
 //            return s;
 //        });
 
-        String[] strs = {"java8", "is", "easy", "to", "use", "use"};
-        List<String> distinctStrs1 = Arrays.stream(strs).distinct().collect(Collectors.toList());
-        System.out.println(distinctStrs1);
+//        String[] strs = {"java8", "is", "easy", "to", "use", "use"};
+//        List<String> distinctStrs1 = Arrays.stream(strs).distinct().collect(Collectors.toList());
+//        System.out.println(distinctStrs1);
+//
+//        List<String> distinctStrs2 = Arrays.stream(strs)
+//                .map(str -> str.split(""))  // 映射成为Stream<String[]>
+//                .flatMap(Arrays::stream)  // 扁平化为Stream<String>
+//                .distinct()
+//                .collect(Collectors.toList());
+//        System.out.println(distinctStrs2);
+//
+//
+//        Converter<String, Integer> converter = Integer::valueOf;
+//        Integer converted = converter.convert("12" + "3");
+//        System.out.println(converted);
+//
+//        List list = new ArrayList();
+//        System.out.println(list!=null);
+//
+//        List<String> strList = Arrays.asList(strs);
+//        Map<String, Long> result = strList.stream().collect(
+//                Collectors.groupingBy(Function.identity(), Collectors.counting()));
+//        System.out.println(result);
 
-        List<String> distinctStrs2 = Arrays.stream(strs)
-                .map(str -> str.split(""))  // 映射成为Stream<String[]>
-                .flatMap(Arrays::stream)  // 扁平化为Stream<String>
-                .distinct()
-                .collect(Collectors.toList());
-        System.out.println(distinctStrs2);
 
+        System.out.println(new Random().nextInt());
 
-        Converter<String, Integer> converter = Integer::valueOf;
-        Integer converted = converter.convert("12" + "3");
-        System.out.println(converted);
     }
 
 
