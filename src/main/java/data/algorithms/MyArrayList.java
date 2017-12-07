@@ -2,7 +2,6 @@ package data.algorithms;
 
 
 import java.util.Arrays;
-
 /**
  * @author simple_huang@foxmail.com on 2017/10/27.
  */
@@ -70,6 +69,9 @@ public class MyArrayList<E> {
             list.remove(1);
             System.out.println(list.capacity);
         }
+
+        int z = 0;
+        System.out.println(z++);
     }
 
 }

@@ -4,6 +4,7 @@ import com.alibaba.fastjson.JSONObject;
 import org.springframework.util.CollectionUtils;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
 
@@ -59,5 +60,22 @@ public class TestJson {
 //        JSONObject jsonObject = JSONObject.parseObject("[{\"rangeTypeId\":2,\"rangeIdSeq\":[100004,100005]}]");
 //        Integer rangeTypeId = jsonObject.getInteger("rangeTypeId");
 //        System.out.println("rangeTypeId is " + rangeTypeId);
+
+        List<String> strs = Arrays.asList("问题1", "问题2", "问题3");
+        String jsonStr = JSON.toJSONString(strs);
+        System.out.println(jsonStr);
+        List<String> strsBack = JSON.parseArray(jsonStr, String.class);
+        System.out.println(strsBack);
+
+        List<Integer> intTest = Arrays.asList(1, 2, 3);
+        String intTestStr = JSON.toJSONString(intTest);
+        System.out.println(intTestStr);
+
+        System.out.println("SELECT\n" +
+                "\tDevice.deviceId, Device.deviceNote\n" +
+                "FROM\n" +
+                "\tPartnerNodeDevice\n" +
+                "LEFT JOIN Device ON PartnerNodeDevice.deviceId = Device.deviceId\n");
+
     }
 }

@@ -68,7 +68,9 @@ public class Test {
 //        System.out.println(result);
 
 
-        System.out.println(new Random().nextInt());
+//        System.out.println(new Random().nextInt());
+
+
 
     }
 

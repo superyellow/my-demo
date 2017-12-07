@@ -136,7 +136,4 @@ public class ActivityAddForm {
         return ToStringBuilder.reflectionToString(this, ToStringStyle.MULTI_LINE_STYLE);
     }
 
-    public static void main(String[] args) {
-        System.out.println(new ActivityAddForm(1, "afasdf"));
-    }
 }
