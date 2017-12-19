@@ -72,6 +72,7 @@ public class MyArrayList<E> {
 
         int z = 0;
         System.out.println(z++);
+        System.out.println(++z);
     }
 
 }

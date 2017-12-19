@@ -71,6 +71,26 @@ public class Test {
 //        System.out.println(new Random().nextInt());
 
 
+        List<Integer> list = new ArrayList<>();
+        list.add(1);
+        list.add(2);
+        list.add(3);
+        list.add(4);
+        list.add(5);
+        List<String> strList = list.stream().map(i -> {
+            if (i.equals(1)) {
+                return i + "";
+            } else {
+                return null;
+            }
+        }).filter(s -> s != null).collect(Collectors.toList());
+
+        System.out.println(strList.size());
+
+        Map<Integer, Integer> map = new HashMap<>();
+        map.put(1, 2);
+        map.put(1, 3);
+        System.out.println(map.get(1));
 
     }
 
