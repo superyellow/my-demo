@@ -1,4 +1,5 @@
 import org.springframework.beans.BeanUtils;
+import org.springframework.beans.factory.BeanFactory;
 import org.springframework.core.convert.converter.Converter;
 
 import java.util.*;
@@ -9,6 +10,9 @@ import java.util.stream.Collectors;
  * Created by simple_huang@foxmail.com on 2017/7/26.
  */
 public class Test {
+    public String getStr() {
+        return "abc";
+    }
     public static void main(String[] args) {
 //        TestBeanSource tbs = new TestBeanSource();
 //        tbs.setName("黄超");
@@ -71,26 +75,31 @@ public class Test {
 //        System.out.println(new Random().nextInt());
 
 
-        List<Integer> list = new ArrayList<>();
-        list.add(1);
-        list.add(2);
-        list.add(3);
-        list.add(4);
-        list.add(5);
-        List<String> strList = list.stream().map(i -> {
-            if (i.equals(1)) {
-                return i + "";
-            } else {
-                return null;
-            }
-        }).filter(s -> s != null).collect(Collectors.toList());
+//        List<Integer> list = new ArrayList<>();
+//        list.add(1);
+//        list.add(2);
+//        list.add(3);
+//        list.add(4);
+//        list.add(5);
+//        List<String> strList = list.stream().map(i -> {
+//            if (i.equals(1)) {
+//                return i + "";
+//            } else {
+//                return null;
+//            }
+//        }).filter(s -> s != null).collect(Collectors.toList());
+//
+//        System.out.println(strList.size());
+//
+//        Map<Integer, Integer> map = new HashMap<>();
+//        map.put(1, 2);
+//        map.put(1, 3);
+//        System.out.println(map.get(1));
+//
+//        System.out.println("abc" == new Test().getStr());
 
-        System.out.println(strList.size());
-
-        Map<Integer, Integer> map = new HashMap<>();
-        map.put(1, 2);
-        map.put(1, 3);
-        System.out.println(map.get(1));
+        System.out.println(5l << 1);
+        System.out.println(9l >> 1);
 
     }
 
