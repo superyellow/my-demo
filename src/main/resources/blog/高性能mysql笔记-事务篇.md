@@ -1,24 +1,24 @@
-##ACID
+## ACID
 * Atomicity原子性
 * Consistency一致性
 * Isolation隔离性
 * Durability持久性
 
-##隔离级别
+## 隔离级别
 * Read Uncommitted
 * Read Committed
 * Repeatable Read
 * Serializable
 
-##死锁
-* innoDB检测到死锁的循环依赖, 会理解返回一个错误
+## 死锁
+* innoDB检测到死锁的循环依赖, 会立即返回一个错误
 * innoDB将持有最少行级排它锁的事务回滚
 
-##事务日志
+## 事务日志
 * 采用追加方式, 写日志是操作磁盘上一小块区域的顺序io, 比随机io快
 * 预写式日志(Write-Ahead Logging), 即先写入日志, 后续慢慢写入磁盘
 
-##mysql的事务
+## mysql的事务
 * AUTOCOMMIT(自动提交)
   * show variables like 'autocommit'; 
   * set autocommit=1;
@@ -30,7 +30,7 @@
   * 数据库根据隔离级别自动加锁 - 隐式锁定
   * for update; lock in share mode - innoDB支持的显式锁定
 
-##MVCC
+## MVCC
 * 行级锁的变种, 保存数据在某个时间点的快照实现, 有乐观跟悲观两种并发控制
 * repeatable read隔离级别下
   * insert操作, 保存该数据行隐藏的创建版本号
