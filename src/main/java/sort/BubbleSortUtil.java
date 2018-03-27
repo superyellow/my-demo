@@ -65,5 +65,6 @@ public class BubbleSortUtil {
 
     public static void main(String[] args) {
         bubbleSortInt(new int[]{1, 6, 2, 3, 4, 7, 5, 4});
+
     }
 }
