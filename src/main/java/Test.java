@@ -98,9 +98,29 @@ public class Test {
 //
 //        System.out.println("abc" == new Test().getStr());
 
-        System.out.println(5l << 1);
-        System.out.println(9l >> 1);
+//        System.out.println(5l << 1);
+//        System.out.println(9l >> 1);
 
+        int length = "😁".length();
+        System.out.println("length " + length);
+        System.out.println("abc".indexOf("a"));
+        System.out.println("abc".indexOf("b"));
+        System.out.println("abc".indexOf("c"));
+        char[] chars = "😁".toCharArray();
+        int at1 = "😁".codePointAt(0);
+        System.out.println("at1 " + at1);
+        int at2 = "😁".codePointAt(1);
+        System.out.println("at2 " + at2);
+        int before1 = "😁".codePointBefore(1);
+        System.out.println("before1 " + before1);//55357
+        int before2 = "😁".codePointBefore(2);
+        System.out.println("before2 " + before2);//128513
+        int count = "😁".codePointCount(0, "😁".length()-1);
+        System.out.println("count " + count);
+        "😁".codePoints().boxed().forEach(
+                integer -> System.out.println(integer));
+        int offset = "😁😁".offsetByCodePoints(1, 2);
+        System.out.println("offset " + offset);
     }
 
 
